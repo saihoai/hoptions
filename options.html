@@ -1,0 +1,229 @@
+<link rel="stylesheet" data-rtl-href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-rtl/3.4.0/css/bootstrap-rtl.min.css" href="#">
+<link rel="stylesheet" data-rtl-href="assets/css/style.rtl.css" href="#">
+<style>
+	/*mod-demo Options*/
+	.template-options {
+		position: fixed;
+		top: 130px;
+		right: -240px;
+		z-index: 1000;
+		width: 240px;
+		background: #fff;
+		-webkit-transition: right 400ms;
+		transition: right 400ms;
+	}
+	.template-options.opened {
+		right: 0;
+		box-shadow: 0 0 5px rgba(0,0,0,0.2);
+		-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.2);
+	}
+	.option-section {
+		padding-bottom: 20px;
+		margin-bottom: 20px;
+		border-bottom: 1px solid #f1f1f1;
+	}
+	.option-section:last-child {
+		padding-bottom: 0;
+		margin-bottom: 0;
+		border-bottom: 0;
+	}
+	.option-section h4 {
+		color: #333;
+		margin: 0 0 10px;
+		font-size: 14px;
+		line-height: 14px;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+	.option-section .checkbox {
+		margin-bottom: 0;
+	}
+	.option-section .checkbox + .checkbox { margin-top: 5px; }
+	.options-inner {
+		position: relative;
+		padding: 20px;
+	}
+	.mod-demo-toggler {
+		position: absolute;
+		top: 0;
+		left: -48px;
+		display: inline-block;
+		background: #fff;
+		width: 48px;
+		height: 48px;
+		line-height: 48px;
+		text-align: center;
+		font-size: 24px;
+		color: #000;
+		box-shadow: 0 0 5px rgba(0,0,0,0.2);
+		-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.2);
+	}
+	.mod-demo-toggler:hover {
+		color: #000;
+	}
+	.mod-demo-presets,
+	.mod-demo-bg-images {
+		list-style: none;
+		padding: 0;
+	}
+	.mod-demo-bg-images { margin: -5px; }
+	.mod-demo-bg-images li {
+		display: block;
+		float: left;
+		margin: 5px;
+	}
+	.mod-demo-presets li a,
+	.mod-demo-bg-images li a {
+		display: block;
+		width: 42px;
+		height: 42px;
+		border-radius: 2px;
+		float: left;
+	}
+	.mod-demo-presets .minicolors { display: block; width: 100%!important; }
+	.mod-demo-presets .minicolors input { height: 42px!important; }
+	.mod-demo-bg-images li a img {
+		width: 100%;
+	}
+	.mod-demo-presets .minicolors-theme-bootstrap .minicolors-swatch { top: 0; bottom: 0; margin: auto 0; }
+	.mod-demo-presets .minicolors-panel { width: 185px; height: 164px; }
+	.mod-demo-bg-images li.active a {
+		border: 3px solid #22b8f0;
+	}
+	.mod-demo-presets li.active a {
+		-webkit-box-shadow: 0 0 0 3px rgba(0,0,0,.2) inset;
+		box-shadow: 0 0 0 3px rgba(0,0,0,.2) inset;
+	}
+
+	[dir="rtl"] .template-options{
+	    left: -240px;
+	}
+
+	[dir="rtl"] .template-options.opened{
+	    left: 0;
+	}
+
+	[dir="rtl"] .mod-demo-toggler{
+	    right: -48px;
+	}
+
+	[dir="rtl"] .mod-demo-bg-images li{
+	    float: right;
+	}
+
+	[dir="rtl"] .mod-demo-presets li a, [dir="rtl"] .mod-demo-bg-images li a{
+	    float: right;
+	}
+
+
+</style>
+
+<div class="template-options opened hidden-xs">
+    <div class="skin hidden">
+        AAAALyogQmFja2dyb3VuZDogIzc5NmVmZjsqLwouYmctbnQsCi5mb290ZXIgLnNwcGItb3B0aW4tZm9ybSBidXR0b24sCi5wYWdpbmF0aW9uPmxpPmE6aG92ZXIsCi5wYWdpbmF0aW9uPmxpPmE6Zm9jdXMsCi5wYWdpbmF0aW9uPmxpPmE6YWN0aXZlLAoucGFnaW5hdGlvbj5saS5hY3RpdmU+YSwKLnBhZ2luYXRpb24+bGk+c3Bhbjpob3ZlciwKLnBhZ2luYXRpb24+bGk+c3Bhbjpmb2N1cywKLnBhZ2luYXRpb24+bGk+c3BhbjphY3RpdmUsCi5wYWdpbmF0aW9uPmxpLmFjdGl2ZT5zcGFuLApib2R5Om5vdCguaG9tZSkgI3NwLWhlYWRlcjpub3QoLm1lbnUtZml4ZWQpLApbY2xhc3MqPSJiZy0iXTpob3ZlciwKW2NsYXNzKj0iYmctIl06Zm9jdXMsCltjbGFzcyo9ImJnLSJdOmFjdGl2ZSwKLmJnLW50LmJ0bi1wcmltYXJ5IHsgYmFja2dyb3VuZDogIzc5NmVmZjsgfQoKLyogQm9yZGVyIGNvbG9yOiAjNzk2ZWZmOyovCi5iZy1udC5idG4tcHJpbWFyeSwKLmJ0bi1vdXRsaW5lIHsgYm9yZGVyLWNvbG9yOiAjNzk2ZWZmOyB9CgovKiBDb2xvcjogIzc5NmVmZjsqLwphLAouc3AtbWVnYW1lbnUtcGFyZW50IGxpIGxpLmFjdGl2ZT5hLAojc3AtaGVhZGVyIGEubG9nbzpob3ZlciwKI3NwLWhlYWRlciBhLmxvZ286Zm9jdXMsCiNzcC1oZWFkZXIgYS5sb2dvOmFjdGl2ZSwKLnNwLWRyb3Bkb3duOm5vdCguc3AtbWVudS1mdWxsKSBsaS5zcC1tZW51LWl0ZW06aG92ZXIgPiBhLCAKLnNwLWRyb3Bkb3duOm5vdCguc3AtbWVudS1mdWxsKSBsaS5zcC1tZW51LWl0ZW06Zm9jdXMgPiBhLCAKLnNwLWRyb3Bkb3duOm5vdCguc3AtbWVudS1mdWxsKSBsaS5zcC1tZW51LWl0ZW06YWN0aXZlID4gYSwgCi5zcC1kcm9wZG93bjpub3QoLnNwLW1lbnUtZnVsbCkgbGkuc3AtbWVudS1pdGVtLmFjdGl2ZSA+IGEsCi5kcm9wZG93bi1sYW5nIC5kcm9wZG93bi1tZW51IGxpID4gYTpob3ZlciwKLmRyb3Bkb3duLWxhbmcgLmRyb3Bkb3duLW1lbnUgbGkgPiBhOmZvY3VzLAouZHJvcGRvd24tbGFuZyAuZHJvcGRvd24tbWVudSBsaSA+IGE6YWN0aXZlLAouc3BwYi1hZGRvbi1mZWF0dXJlIC5zcHBiLWFkZG9uLXRpdGxlOmhvdmVyLAouc3BwYi1hZGRvbi1mZWF0dXJlIC5zcHBiLWFkZG9uLXRpdGxlOmZvY3VzLAouc3BwYi1hZGRvbi1mZWF0dXJlIC5zcHBiLWFkZG9uLXRpdGxlOmFjdGl2ZSwKLnNwcGItc2VjdGlvbi10aXRsZSAuc3BwYi10aXRsZS1zdWJoZWFkaW5nIGE6aG92ZXIsCi5zcHBiLXNlY3Rpb24tdGl0bGUgLnNwcGItdGl0bGUtc3ViaGVhZGluZyBhOmZvY3VzLAouc3BwYi1zZWN0aW9uLXRpdGxlIC5zcHBiLXRpdGxlLXN1YmhlYWRpbmcgYTphY3RpdmUsCi5zcHBiLXNlY3Rpb24tdGl0bGUgLnNwcGItdGl0bGUtc3ViaGVhZGluZzpiZWZvcmUsCi5zcHBiLWFkZG9uLWZlYXR1cmUgLnNwcGItbW9kYWwtc2VsZWN0b3I6aG92ZXIsCi5zcHBiLWFkZG9uLWZlYXR1cmUgLnNwcGItbW9kYWwtc2VsZWN0b3I6Zm9jdXMsCi5zcHBiLWFkZG9uLWZlYXR1cmUgLnNwcGItbW9kYWwtc2VsZWN0b3I6YWN0aXZlLAoubW9zdHJlYWQgLnNwcGItYWRkb24tZmVhdHVyZSAuc3BwYi1hZGRvbi1jb250ZW50OmJlZm9yZSwKLmZvb3RlciAuc3BwYi1vcHRpbi1mb3JtIGJ1dHRvbjpob3ZlciwKLmZvb3RlciAuc3BwYi1vcHRpbi1mb3JtIGJ1dHRvbjpmb2N1cywKLmZvb3RlciAuc3BwYi1vcHRpbi1mb3JtIGJ1dHRvbjphY3RpdmUsCi5mb290ZXIgYTpob3ZlciwKLmZvb3RlciBhOmZvY3VzLAouZm9vdGVyIGE6YWN0aXZlLAoucGFnZXIgbGk+YTpiZWZvcmUsIAoucGFnZXIgbGk+c3BhbjpiZWZvcmUsCi5wYWdlciBsaTpmaXJzdC1jaGlsZD5hLCAKLnBhZ2VyIGxpOmZpcnN0LWNoaWxkPnNwYW4sCi5wYWdlciBsaTpsYXN0LWNoaWxkPmE6aG92ZXIsCi5wYWdlciBsaTpsYXN0LWNoaWxkPmE6Zm9jdXMsCi5wYWdlciBsaTpsYXN0LWNoaWxkPmE6YWN0aXZlLCAKLnBhZ2VyIGxpOmxhc3QtY2hpbGQ+c3Bhbjpob3ZlciwKLnBhZ2VyIGxpOmxhc3QtY2hpbGQ+c3Bhbjpmb2N1cywKLnBhZ2VyIGxpOmxhc3QtY2hpbGQ+c3BhbjphY3RpdmUsCi5zcHBiLXNvY2lhbCA+ICogPiAuem1kaSwKLnNwcGItYWRkb24tc29jaWFsLnNtIGE6aG92ZXIsCi5zcHBiLWFkZG9uLXNvY2lhbC5zbSBhOmZvY3VzLAouc3BwYi1hZGRvbi1zb2NpYWwuc20gYTphY3RpdmUsCi5zcHBiLWZvcm0gaDMgc3Ryb25nLAouYmctbnQuYnRuLXByaW1hcnk6aG92ZXIsCi5iZy1udC5idG4tcHJpbWFyeTpmb2N1cywKLmJnLW50LmJ0bi1wcmltYXJ5OmFjdGl2ZSB7IGNvbG9yOiAjNzk2ZWZmOyB9
+    </div>
+    <div class="options-inner">
+        <a href="#" class="mod-demo-toggler">
+            <i class="zmdi zmdi-layers"></i>
+        </a>
+        <div class="option-section">
+            <h4>Layout Type</h4>
+            <div class="checkbox">
+                <label><input id="mod-demo-boxed" type="checkbox">Enable Boxed Layout</label>
+            </div>
+            <div class="checkbox">
+                <label><input id="mod-demo-rtl" type="checkbox">Enable RTL Layout</label>
+            </div>
+        </div>
+        <div class="option-section">
+            <h4>Presets Color</h4>
+            <ul class="mod-demo-presets clearfix">
+                <li class="mod-demo-preset4 active" data-preset="4">
+                    <input type="color" name="mod-demo-preset" value="#5e52f7" class="minicolors" data-position="left">
+                </li>
+            </ul>
+        </div>
+        <div class="option-section">
+            <h4>Background Image</h4>
+            <ul class="mod-demo-bg-images clearfix">
+                <li>
+                    <a href="https://raw.githubusercontent.com/saihoai/mod_demo/master/1.jpg"><img class="img-responsive" src="https://raw.githubusercontent.com/saihoai/mod_demo/master/thumb1.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="https://raw.githubusercontent.com/saihoai/mod_demo/master/2.jpg"><img class="img-responsive" src="https://raw.githubusercontent.com/saihoai/mod_demo/master/thumb2.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="https://raw.githubusercontent.com/saihoai/mod_demo/master/3.jpg"><img class="img-responsive" src="https://raw.githubusercontent.com/saihoai/mod_demo/master/thumb3.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="https://raw.githubusercontent.com/saihoai/mod_demo/master/4.jpg"><img class="img-responsive" src="https://raw.githubusercontent.com/saihoai/mod_demo/master/thumb4.jpg" alt=""></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div><!-- .template-options -->
+
+<script>
+	jQuery( function( $) {
+        var d = $( document ).on( 'mod-demo-rbg', function() {
+            $( '.mod-demo-bg-images li' ).removeClass( 'active' );
+        } );
+
+        d.delegate( '.mod-demo-toggler', 'click', function() {
+            $( this ).closest( '.template-options' ).toggleClass( 'opened' );
+            return false;
+        } ).delegate( '#mod-demo-boxed', 'click', function() {
+            var b = $( 'body' ).toggleClass( 'layout-fluid layout-boxed' );
+            
+            !b.hasClass( 'layout-boxed' ) && b.css( 'background-image', 'none' ) && d.trigger( 'mod-demo-rbg' );
+        } ).delegate( '.mod-demo-bg-images a', 'click', function() {
+            var b = $( 'body' )
+            .removeClass( 'layout-fluid layout-boxed' )
+            .addClass( 'layout-boxed' )
+            .css( 'background', 'url('+ this.href + ') no-repeat fixed left top / cover transparent' );
+
+            $( '#mod-demo-boxed' ).attr( 'checked', b.hasClass( 'layout-boxed' ) );
+
+            d.trigger( 'mod-demo-rbg' );
+            $( this ).closest( 'li' ).addClass( 'active' );
+
+            return false;
+        } ).delegate( '#mod-demo-rtl', 'click', function() {
+            
+            var i = $( this ).is( ':checked' );
+            if( i )
+            {
+                $( 'html' ).attr( 'dir', 'rtl' );
+                $( '[data-rtl-href]' ).each( function() {
+                    var e = $( this );
+                    e.attr( 'href', e.attr( 'data-rtl-href' ) );
+                } );
+            }
+            else
+            {
+                $( 'html' ).removeAttr( 'dir', 'rtl' );
+                $( '[data-rtl-href]' ).each( function() {
+                    var e = $( this );
+                    e.attr( 'href', '#' );
+                } );
+            }
+
+        } );
+
+        var 
+            s = $( '.template-options .skin' ).html(),
+            mark = $( '#demo-skin' )
+        ;
+        s = atob( s );
+
+        !$( '#demo-skin' ).length && $( 'head' ).append( $( '<style id="demo-skin"></style>') ) && ( mark = $( '#demo-skin' ) );
+
+        d.delegate( '[name="mod-demo-preset"]', 'change', function() {
+            var css = s.replace( /\#796eff/g, $( this ).val() );
+            mark.html( css );
+        } );
+
+        
+    } );
+</script>
