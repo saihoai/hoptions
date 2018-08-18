@@ -1,4 +1,5 @@
 <link rel="stylesheet" data-rtl-href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-rtl/3.4.0/css/bootstrap-rtl.min.css" href="#">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-minicolors/2.2.6/jquery.minicolors.min.css">
 <link rel="stylesheet" data-rtl-href="assets/css/style.rtl.css" href="#">
 <style>
 	/*mod-demo Options*/
@@ -136,7 +137,7 @@
             <h4>Presets Color</h4>
             <ul class="mod-demo-presets clearfix">
                 <li class="mod-demo-preset4 active" data-preset="4">
-                    <input type="color" name="mod-demo-preset" value="#5e52f7" class="minicolors" data-position="left">
+                    <input type="text" name="mod-demo-preset" value="#5e52f7" class="minicolors" data-position="left">
                 </li>
             </ul>
         </div>
@@ -160,8 +161,10 @@
     </div>
 </div><!-- .template-options -->
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-minicolors/2.2.6/jquery.minicolors.min.js"></script>
 <script>
 	jQuery( function( $) {
+		$( '[name="mod-demo-preset"]' ).minicolors({});
         var d = $( document ).on( 'mod-demo-rbg', function() {
             $( '.mod-demo-bg-images li' ).removeClass( 'active' );
         } );
