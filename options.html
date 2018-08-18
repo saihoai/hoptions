@@ -83,7 +83,7 @@
 		float: left;
 	}
 	.mod-demo-presets .minicolors { display: block; width: 100%!important; }
-	.mod-demo-presets .minicolors input { height: 42px!important; }
+	.mod-demo-presets .minicolors input { height: 30px!important; }
 	.mod-demo-bg-images li a img {
 		width: 100%;
 	}
@@ -161,10 +161,12 @@
     </div>
 </div><!-- .template-options -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-minicolors/2.2.6/jquery.minicolors.min.js"></script>
 <script>
 	jQuery( function( $) {
-		$( '[name="mod-demo-preset"]' ).minicolors({});
+		$.getScript( 'https://cdnjs.cloudflare.com/ajax/libs/jquery-minicolors/2.2.6/jquery.minicolors.min.js', function() {
+			$( '[name="mod-demo-preset"]' ).minicolors({});
+		} );
+		
         var d = $( document ).on( 'mod-demo-rbg', function() {
             $( '.mod-demo-bg-images li' ).removeClass( 'active' );
         } );
