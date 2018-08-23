@@ -228,17 +228,17 @@ s0.parentNode.insertBefore(s1,s0);
 
         } );
 
-        var 
-            s = $( '.template-options .skin' ).html(),
-            mark = $( '#demo-skin' )
-        ;
-        s = atob( s );
+        /* Action: preset;*/
 
-        !$( '#demo-skin' ).length && $( 'head' ).append( $( '<style id="demo-skin"></style>') ) && ( mark = $( '#demo-skin' ) );
+        $.get( 'assets/css/color.css', function( s ) {
+        	var mark = $( '#demo-skin' ) ;
 
-        d.delegate( '[name="mod-demo-preset"]', 'change', function() {
-            var css = s.replace( /\#796eff/g, $( this ).val() );
-            mark.html( css );
+	        !$( '#demo-skin' ).length && $( 'head' ).append( $( '<style id="demo-skin"></style>') ) && ( mark = $( '#demo-skin' ) );
+
+	        d.delegate( '[name="mod-demo-preset"]', 'change', function() {
+	            var css = s.replace( /\#796eff/g, $( this ).val() );
+	            mark.html( css );
+	        } );
         } );
 
         
